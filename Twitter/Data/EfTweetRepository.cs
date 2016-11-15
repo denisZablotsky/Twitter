@@ -1,5 +1,5 @@
 ﻿using Twitter.Models;
-
+using System;
 namespace Twitter.Data
 {
     public class EfTweetRepository : ITweetRepository
@@ -11,6 +11,7 @@ namespace Twitter.Data
         }
         public Tweet CreateTweet(Tweet tweet)
         {
+            tweet.CreatingDate = DateTime.Now;
             Tweet newTweet = context.Tweets.Add(tweet);
             context.SaveChanges();
             return newTweet;

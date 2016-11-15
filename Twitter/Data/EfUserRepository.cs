@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using Twitter.Models;
+using System;
 
 namespace Twitter.Data
 {
@@ -21,6 +22,9 @@ namespace Twitter.Data
 
         public User CreateUser(User user)
         {
+            user.Profile.SignupData = DateTime.Now;
+            user.Profile.Id = user.Id;
+            context.UserProfiles.Add(user.Profile);
             User newUser = context.Users.Add(user);
             context.SaveChanges();
             return newUser;

@@ -13,6 +13,6 @@ namespace Twitter.Models
          * |User| -HasMany-> |Tweet|
          */
         public virtual int UserId { get; set; }
-        public virtual User User { get; set; }
+        public virtual User Author { get; set; }
     }
 }

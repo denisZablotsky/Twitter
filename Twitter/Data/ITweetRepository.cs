@@ -2,7 +2,7 @@
 
 namespace Twitter.Data
 {
-    interface ITweetRepository
+    public interface ITweetRepository
     {
         Tweet CreateTweet(Tweet tweet);
     }

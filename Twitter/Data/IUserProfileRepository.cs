@@ -2,7 +2,7 @@
 
 namespace Twitter.Data
 {
-    interface IUserProfileRepository
+    public interface IUserProfileRepository
     {
         UserProfile CreateUserProfile(UserProfile userProfile);
     }

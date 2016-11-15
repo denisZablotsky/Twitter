@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Twitter.Data
 {
-    interface IUserRepository
+    public interface IUserRepository
     {
         IQueryable<User> Users { get; }
         User CreateUser(User user);

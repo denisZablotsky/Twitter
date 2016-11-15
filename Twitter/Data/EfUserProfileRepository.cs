@@ -1,5 +1,4 @@
-﻿using System;
-using Twitter.Models;
+﻿using Twitter.Models;
 
 namespace Twitter.Data
 {

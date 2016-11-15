@@ -5,8 +5,8 @@ namespace Twitter.Data
 {
     public class EfDbContext: DbContext
     {
-        DbSet<User> Users { get; set; }
-        DbSet<UserProfile> UserProfiles { get; set; }
-        DbSet<Tweet> Tweets { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<UserProfile> UserProfiles { get; set; }
+        public DbSet<Tweet> Tweets { get; set; }
     }
 }

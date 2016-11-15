@@ -1,0 +1,22 @@
+﻿@model Twitter.Models.User
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>@Model.Name</h2>
+<p>@Model.Profile.Email</p>
+<p>@Model.Profile.Age</p>
+<br />
+@{ 
+    Html.RenderAction("CreateTweet", "User", new { id = Model.Id });
+}
+<br />
+@foreach(Twitter.Models.Tweet tweet in Model.Tweets)
+{
+    <p>
+        @tweet.Author.Name @tweet.CreatingDate.Hour : @tweet.CreatingDate.Minute
+        <br />
+        @tweet.Text
+    </p>
+}
+

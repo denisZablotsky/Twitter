@@ -1,0 +1,8 @@
+﻿@model Twitter.Models.Tweet
+
+@using(Html.BeginForm("CreateTweet", "User", FormMethod.Post))
+{
+    @Html.TextAreaFor(x => x.Text);
+    <br />
+    <input type="submit" value="Publish" />
+}

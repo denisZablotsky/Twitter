@@ -1,0 +1,20 @@
+﻿@model IQueryable<Twitter.Models.User>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Welcome to Twitter</h2>
+@Html.ActionLink("Registration", "Registration", "Home")
+<h3>All Users:</h3>
+<br />
+@if (Model == null)
+{
+    <p>No registered users. Become the first!</p>
+}
+else{
+    foreach(Twitter.Models.User user in Model)
+    {
+        <p>@Html.ActionLink(user.Name, "Index", "User", new { id = user.Id }, null)</p>
+    }
+}
+

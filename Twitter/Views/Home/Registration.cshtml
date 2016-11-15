@@ -1,0 +1,27 @@
+﻿@model Twitter.Models.User
+@{
+    ViewBag.Title = "Registration";
+}
+
+<h2>Registration</h2>
+
+@using(Html.BeginForm("Signup", "Home", FormMethod.Post))
+{
+    @Html.Label("Name");
+    <br />
+    @Html.TextBoxFor(x => x.Name);
+    <br /><br />
+    @Html.Label("Password");
+    <br />
+    @Html.PasswordFor(x => x.Password);
+    <br /><br />
+    @Html.Label("Email");
+    <br />
+    @Html.TextBoxFor(x => x.Profile.Email);
+    <br /><br />
+    @Html.Label("Age");
+    <br />
+    @Html.TextBoxFor(x => x.Profile.Age);
+    <br /><br />
+    <input type="submit" value="Sign Up" />
+}

@@ -20,5 +20,16 @@ namespace Twitter.Controllers
                 return View(Users);
             return View("Index", null);
         }
+        public ActionResult Registration()
+        {
+            User user = new Models.User();
+            return View(user);
+        }
+        [HttpPost]
+        public ActionResult Signup(User user)
+        {
+            userRepository.CreateUser(user);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

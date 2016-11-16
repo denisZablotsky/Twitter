@@ -56,3 +56,6 @@ c:\users\user\documents\visual studio 2015\Projects\Twitter\Twitter\bin\ru\Syste
 c:\users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.csprojResolveAssemblyReference.cache
 c:\users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.dll
 c:\users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.pdb
+C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.Migrations.InitialCreate.resources
+C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.csproj.GenerateResource.Cache
+C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.Migrations.TwitterDbWhisFollowers.resources

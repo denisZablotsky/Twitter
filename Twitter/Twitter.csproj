@@ -163,6 +163,15 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\NinjectControllerFactory.cs" />
+    <Compile Include="Migrations\201611151403077_InitialCreate.cs" />
+    <Compile Include="Migrations\201611151403077_InitialCreate.Designer.cs">
+      <DependentUpon>201611151403077_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201611161312236_TwitterDbWhisFollowers.cs" />
+    <Compile Include="Migrations\201611161312236_TwitterDbWhisFollowers.Designer.cs">
+      <DependentUpon>201611161312236_TwitterDbWhisFollowers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Tweet.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserProfile.cs" />
@@ -195,6 +204,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201611151403077_InitialCreate.resx">
+      <DependentUpon>201611151403077_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611161312236_TwitterDbWhisFollowers.resx">
+      <DependentUpon>201611161312236_TwitterDbWhisFollowers.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

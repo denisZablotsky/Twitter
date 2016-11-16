@@ -2,15 +2,19 @@
 using System.Web.Mvc;
 using Twitter.Models;
 using Twitter.Data;
+using Twitter.Services;
 
 namespace Twitter.Controllers
 {
     public class HomeController : Controller
     {
         private IUserRepository userRepository;
-        public HomeController(IUserRepository userRep)
+        private ISecurityService _security;
+
+        public HomeController(IUserRepository userRep, ISecurityService security)
         {
             userRepository = userRep;
+            _security = security;
         }
         // GET: Home
         public ActionResult Index()
@@ -30,6 +34,26 @@ namespace Twitter.Controllers
         {
             userRepository.CreateUser(user);
             return RedirectToAction("Index", "Home");
+        }
+
+        // Authentication
+        public PartialViewResult AuthenticateSection()
+        {
+            if (_security.IsAuthenticate())
+            {
+                return PartialView("_authenticatedSection", _security.GetCurrentUser());
+            }
+            else
+            {
+                return PartialView("_loginSection", new User());
+            }
+        }
+        public ActionResult Login(User user)
+        {
+            if (!_security.Authenticate(user.Name, user.Password))
+                return RedirectToAction("Index", "Home");
+            _security.Login(user);
+            return RedirectToAction("Index", "Me");
         }
     }
 }

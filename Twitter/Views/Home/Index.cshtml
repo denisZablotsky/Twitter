@@ -4,7 +4,9 @@
 }
 
 <h2>Welcome to Twitter</h2>
-@Html.ActionLink("Registration", "Registration", "Home")
+@{ 
+    Html.RenderAction("AuthenticateSection", "Home");
+}
 <h3>All Users:</h3>
 <br />
 @if (Model == null)

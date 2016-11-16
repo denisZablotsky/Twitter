@@ -11,9 +11,9 @@ namespace Twitter.Controllers
     public class MeController : Controller
     {
         ISecurityService _security;
-        public MeController(ISecurityService security)
+        public MeController()
         {
-            _security = security;
+            _security = new SecurityService();
         }
         // GET: Me
         public ActionResult Index()

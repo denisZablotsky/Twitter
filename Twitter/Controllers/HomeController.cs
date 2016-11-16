@@ -11,10 +11,10 @@ namespace Twitter.Controllers
         private IUserRepository userRepository;
         private ISecurityService _security;
 
-        public HomeController(IUserRepository userRep, ISecurityService security)
+        public HomeController(IUserRepository userRep)
         {
             userRepository = userRep;
-            _security = security;
+            _security = new SecurityService();
         }
         // GET: Home
         public ActionResult Index()
@@ -53,6 +53,7 @@ namespace Twitter.Controllers
         {
             if (!_security.Authenticate(user.Name, user.Password))
                 return RedirectToAction("Index", "Home");
+            user = userRepository.GetUserByName(user.Name);
             _security.Login(user);
             return RedirectToAction("Index", "Me");
         }

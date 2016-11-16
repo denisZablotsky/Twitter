@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using System;
 using System.Web.Routing;
 using Twitter.Data;
+using Twitter.Services;
 
 namespace Twitter.Infrastructure
 {
@@ -26,6 +27,7 @@ namespace Twitter.Infrastructure
             ninjectKernel.Bind<IUserRepository>().To<EfUserRepository>();
             ninjectKernel.Bind<ITweetRepository>().To<EfTweetRepository>();
             ninjectKernel.Bind<IUserProfileRepository>().To<EfUserProfileRepository>();
+            ninjectKernel.Bind<ISecurityService>().To<SecurityService>();
         }
     }
 }

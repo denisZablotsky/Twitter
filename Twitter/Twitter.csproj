@@ -195,6 +195,9 @@
     <Content Include="Views\Shared\_loginSection.cshtml" />
     <Content Include="Views\Shared\_authenticatedSection.cshtml" />
     <Content Include="Views\Me\Index.cshtml" />
+    <Content Include="Views\Shared\_reg.cshtml" />
+    <Content Include="Views\Shared\_follow.cshtml" />
+    <Content Include="Views\Shared\_unfollow.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

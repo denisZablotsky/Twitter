@@ -9,5 +9,7 @@ namespace Twitter.Data
         User CreateUser(User user);
         User GetUserById(int id);
         User GetUserByName(string name);
+        void Follow(int FollowerId, int FollowingId);
+        void Unfollow(int FollowerId, int FollowingId);
     }
 }

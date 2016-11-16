@@ -12,8 +12,8 @@ namespace Twitter.Data
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Entity<User>()
-                .HasMany(x => x.Followers)
-                .WithMany(x => x.Followings)
+                .HasMany(x => x.Followings)
+                .WithMany(x => x.Followers)
                 .Map(m =>
                 {
                     m.ToTable("Follow");

@@ -30,6 +30,14 @@ namespace Twitter.Data
             return newUser;
         }
 
+        public void Follow(int FollowerId, int FollowingId)
+        {
+            User currentUser = GetUserById(FollowerId);
+            User user = GetUserById(FollowingId);
+            currentUser.Followings.Add(user);
+            context.SaveChanges();
+        }
+
         public User GetUserById(int id)
         {
             return context.Users.Find(id);
@@ -38,6 +46,14 @@ namespace Twitter.Data
         public User GetUserByName(string name)
         {
             return context.Users.SingleOrDefault(x => x.Name == name);
+        }
+
+        public void Unfollow(int FollowerId, int FollowingId)
+        {
+            User currentUser = GetUserById(FollowerId);
+            User user = GetUserById(FollowingId);
+            currentUser.Followings.Remove(user);
+            context.SaveChanges();
         }
     }
 }

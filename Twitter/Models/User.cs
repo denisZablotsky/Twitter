@@ -20,6 +20,8 @@ namespace Twitter.Models
         public User()
         {
             Tweets = new Collection<Tweet>();
+            Followers = new Collection<User>();
+            Followings = new Collection<User>();
         }
     }
 }

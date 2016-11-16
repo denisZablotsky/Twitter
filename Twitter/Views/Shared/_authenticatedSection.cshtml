@@ -1,0 +1,7 @@
+﻿@model Twitter.Models.User
+
+@using(Html.BeginForm("Logout", "Home", FormMethod.Post))
+{
+    <h3>@Model.Name</h3>
+    <input type="submit" value="Logout" />
+}

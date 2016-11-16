@@ -56,5 +56,11 @@ namespace Twitter.Controllers
             _security.Login(user);
             return RedirectToAction("Index", "Me");
         }
+        [HttpPost]
+        public ActionResult Logout(User user)
+        {
+            _security.Logout();
+            return RedirectToAction("Index", "Home");
+        }
     }
 }

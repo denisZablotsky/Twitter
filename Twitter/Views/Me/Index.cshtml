@@ -1,10 +1,15 @@
 ﻿@model Twitter.Models.User
 
 <h2>@Model.Name</h2>
+<br />
+@{
+    Html.RenderAction("CreateTweet", "User", new { id = Model.Id });
+}
+<br />
 @foreach(Twitter.Models.Tweet tweet in Model.Tweets)
 {
     <p>
-        @tweet.Author.Name at @tweet.CreatingDate.Day @tweet.CreatingDate.Month @tweet.CreatingDate.Hour:@tweet.CreatingDate.Minute
+        @tweet.Author.Name at @tweet.CreatingDate.Day.@tweet.CreatingDate.Month @tweet.CreatingDate.Hour:@tweet.CreatingDate.Minute
         <br />
         @tweet.Text
     </p>

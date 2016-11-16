@@ -32,7 +32,7 @@ namespace Twitter.Controllers
         {
             tweet.UserId = tweet.Id;
             tweetRepository.CreateTweet(tweet);
-            return RedirectToAction("Index", "User", new { id = tweet.UserId });
+            return RedirectToAction("Index", "Me");
         }
     }
 }

@@ -7,9 +7,6 @@
 <p>@Model.Profile.Email</p>
 <p>@Model.Profile.Age</p>
 <br />
-@{ 
-    Html.RenderAction("CreateTweet", "User", new { id = Model.Id });
-}
 <br />
 @foreach(Twitter.Models.Tweet tweet in Model.Tweets)
 {

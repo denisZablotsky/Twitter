@@ -145,7 +145,7 @@
     <Content Include="Web.config" />
     <Content Include="Views\Home\Registration.cshtml" />
     <Content Include="Views\User\Index.cshtml" />
-    <Content Include="Views\User\CreateTweet.cshtml" />
+    <Content Include="Views\Shared\CreateTweet.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />

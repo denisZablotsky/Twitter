@@ -1,0 +1,16 @@
+﻿@model Twitter.Models.User
+
+@using(Html.BeginForm("Login", "Home", FormMethod.Post))
+{
+    @Html.Label("Name")
+    <br />
+    @Html.TextBoxFor(x => x.Name)
+    <br />
+    <br />
+    @Html.Label("Password")
+    <br />
+    @Html.PasswordFor(x => x.Password)
+    <br />
+    <br />
+    <input type="submit" value="Login" />
+}

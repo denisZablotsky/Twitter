@@ -48,6 +48,7 @@ namespace Twitter.Controllers
                 return PartialView("_loginSection", new User());
             }
         }
+        [HttpPost]
         public ActionResult Login(User user)
         {
             if (!_security.Authenticate(user.Name, user.Password))

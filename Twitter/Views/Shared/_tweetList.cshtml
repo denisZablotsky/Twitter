@@ -1,0 +1,15 @@
+﻿@model ICollection<Twitter.Models.Tweet>
+
+<br />
+@if (Model != null)
+{
+    foreach (Twitter.Models.Tweet tweet in Model)
+    {
+    <p>
+        @Html.ActionLink(@tweet.Author.Name, "Index", "User", new { id = @tweet.Author.Id }, null) at @tweet.CreatingDate.Day.@tweet.CreatingDate.Month @tweet.CreatingDate.Hour:@tweet.CreatingDate.Minute
+        <br />
+        @tweet.Text
+    </p>
+    <br />
+    }
+}

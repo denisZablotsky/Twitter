@@ -199,6 +199,7 @@
     <Content Include="Views\Shared\_follow.cshtml" />
     <Content Include="Views\Shared\_unfollow.cshtml" />
     <Content Include="Views\Shared\_followList.cshtml" />
+    <Content Include="Views\Shared\_tweetList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

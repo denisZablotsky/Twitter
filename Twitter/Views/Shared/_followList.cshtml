@@ -1,0 +1,31 @@
+﻿@model Twitter.Models.User
+
+<p>Followers:</p>
+@if (!Model.Followers.Any())
+{
+    <p>No Followers.</p>
+}
+else
+{
+    foreach(Twitter.Models.User user in Model.Followers)
+    {
+        <p>
+            @Html.ActionLink(user.Name, "Index", "Me", new { id = user.Id})
+        </p>
+    }
+}
+<br />
+<p>Followings:</p>
+@if (!Model.Followings.Any())
+{
+    <p>No Followings.</p>
+}
+else
+{
+    foreach (Twitter.Models.User user in Model.Followings)
+    {
+        <p>
+            @Html.ActionLink(user.Name, "Index", "Me", new { id = user.Id })
+        </p>
+    }
+}

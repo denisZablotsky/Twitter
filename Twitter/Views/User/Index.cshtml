@@ -6,6 +6,9 @@
 <h2>@Model.Name</h2>
 <p>@Model.Profile.Email</p>
 <p>@Model.Profile.Age</p>
+@{ 
+    Html.RenderPartial("_followList", Model);
+}
 <br />
 @{ 
     Html.RenderAction("FollowSection", "User", new { id = Model.Id });

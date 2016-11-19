@@ -32,7 +32,7 @@ namespace Twitter.Controllers
             ICollection<Tweet> timeline = new List<Tweet>();
             foreach(User following in user.Followings)
             {
-                timeline = timeline.Concat(following.Tweets.ToList()).ToList();
+                timeline = timeline.Concat(following.Tweets.Where(x => x.CreatingDate >= DateTime.Now.AddDays(-7)).ToList()).ToList();
             }
             timeline = timeline.OrderByDescending(x => x.CreatingDate).ToList();
             return View(timeline);

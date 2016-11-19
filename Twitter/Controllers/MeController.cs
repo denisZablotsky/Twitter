@@ -21,6 +21,7 @@ namespace Twitter.Controllers
             if (!_security.IsAuthenticate())
                 return RedirectToAction("Index", "Home");
             User user = _security.GetCurrentUser();
+            user.Tweets = user.Tweets.OrderByDescending(x => x.CreatingDate).ToList();
             return View(user);
         }
     }

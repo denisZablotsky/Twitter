@@ -2,6 +2,7 @@
 using Twitter.Data;
 using Twitter.Models;
 using Twitter.Services;
+using System.Linq;
 
 namespace Twitter.Controllers
 {
@@ -22,6 +23,7 @@ namespace Twitter.Controllers
             User user = userRepository.GetUserById(id);
             if (user == null)
                 return RedirectToAction("Index", "Home");
+            user.Tweets = user.Tweets.OrderByDescending(x => x.CreatingDate).ToList();
             return View(user);
         }
         public PartialViewResult CreateTweet(int id)

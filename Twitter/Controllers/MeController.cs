@@ -24,5 +24,18 @@ namespace Twitter.Controllers
             user.Tweets = user.Tweets.OrderByDescending(x => x.CreatingDate).ToList();
             return View(user);
         }
+        public ActionResult Timeline()
+        {
+            if (!_security.IsAuthenticate())
+                return RedirectToAction("Index", "Home");
+            User user = _security.GetCurrentUser();
+            ICollection<Tweet> timeline = new List<Tweet>();
+            foreach(User following in user.Followings)
+            {
+                timeline = timeline.Concat(following.Tweets.ToList()).ToList();
+            }
+            timeline = timeline.OrderByDescending(x => x.CreatingDate).ToList();
+            return View(timeline);
+        }
     }
 }

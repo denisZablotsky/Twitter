@@ -1,0 +1,9 @@
+﻿@model ICollection<Twitter.Models.Tweet>
+@{
+    ViewBag.Title = "Timeline";
+}
+
+<h2>Timeline</h2>
+@{ 
+    Html.RenderPartial("_tweetList", Model);
+}

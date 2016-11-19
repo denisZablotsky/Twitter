@@ -2,6 +2,8 @@
 
 <h2>@Model.Name</h2>
 <br />
+@Html.ActionLink("Timeline", "Timeline", "Me", null, null);
+<br />
 @{ 
     Html.RenderPartial("_followList", Model);
 }

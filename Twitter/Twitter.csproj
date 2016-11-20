@@ -201,6 +201,7 @@
     <Content Include="Views\Shared\_followList.cshtml" />
     <Content Include="Views\Shared\_tweetList.cshtml" />
     <Content Include="Views\Me\Timeline.cshtml" />
+    <Content Include="Views\Shared\_CustomLayout.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

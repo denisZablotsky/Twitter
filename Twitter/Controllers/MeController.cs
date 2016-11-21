@@ -41,24 +41,6 @@ namespace Twitter.Controllers
             timeline = timeline.OrderByDescending(x => x.CreatingDate).ToList();
             return View(timeline);
         }
-        [HttpPost]
-        public ActionResult UploadAvatar(HttpPostedFileBase file)
-        {
-            if(file != null && file.ContentLength > 0)
-            {
-                User user = _security.GetCurrentUser();
-                try
-                {
-                    string path = Server.MapPath("~/Image/") + user.Name + "-ava.jpg";
-                    file.SaveAs(path);
-                    userRep.SetAvatarLink(user.Id, path);
-                }
-                catch(Exception e)
-                {
 
-                }
-            }
-            return RedirectToAction("Index", "Me");
-        }
     }
 }

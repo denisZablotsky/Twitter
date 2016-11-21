@@ -20,6 +20,7 @@ namespace Twitter.Data
                     m.MapLeftKey("FollowerId");
                     m.MapRightKey("FollowingId");
                 });
+            Database.SetInitializer<EfDbContext>(null);
             base.OnModelCreating(modelBuilder);
         }
     }

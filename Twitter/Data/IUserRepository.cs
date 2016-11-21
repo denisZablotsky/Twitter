@@ -11,6 +11,5 @@ namespace Twitter.Data
         User GetUserByName(string name);
         void Follow(int FollowerId, int FollowingId);
         void Unfollow(int FollowerId, int FollowingId);
-        void SetAvatarLink(int UserId, string link);
     }
 }

@@ -202,6 +202,8 @@
     <Content Include="Views\Shared\_tweetList.cshtml" />
     <Content Include="Views\Me\Timeline.cshtml" />
     <Content Include="Views\Shared\_CustomLayout.cshtml" />
+    <Content Include="Views\Me\uploadAva.cshtml" />
+    <Content Include="Views\Shared\_avatar.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

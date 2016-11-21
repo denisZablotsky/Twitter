@@ -49,6 +49,13 @@ namespace Twitter.Data
             return context.Users.SingleOrDefault(x => x.Name == name);
         }
 
+        public void SetAvatarLink(int UserId, string link)
+        {
+            User user = context.Users.Find(UserId);
+            user.Avatar = link;
+            context.SaveChanges();
+        }
+
         public void Unfollow(int FollowerId, int FollowingId)
         {
             User currentUser = GetUserById(FollowerId);

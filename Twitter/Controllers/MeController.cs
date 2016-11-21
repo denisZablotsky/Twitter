@@ -5,15 +5,19 @@ using System.Web;
 using System.Web.Mvc;
 using Twitter.Models;
 using Twitter.Services;
+using Twitter.Data;
 
 namespace Twitter.Controllers
 {
     public class MeController : Controller
     {
         ISecurityService _security;
-        public MeController()
+        IUserRepository userRep;
+
+        public MeController(IUserRepository rep)
         {
             _security = new SecurityService();
+            userRep = rep;
         }
         // GET: Me
         public ActionResult Index()
@@ -47,6 +51,7 @@ namespace Twitter.Controllers
                 {
                     string path = Server.MapPath("~/Image/") + user.Name + "-ava.jpg";
                     file.SaveAs(path);
+                    userRep.SetAvatarLink(user.Id, path);
                 }
                 catch(Exception e)
                 {

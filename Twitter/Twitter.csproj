@@ -171,6 +171,10 @@
     <Compile Include="Migrations\201611161312236_TwitterDbWhisFollowers.Designer.cs">
       <DependentUpon>201611161312236_TwitterDbWhisFollowers.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611231130191_likes.cs" />
+    <Compile Include="Migrations\201611231130191_likes.Designer.cs">
+      <DependentUpon>201611231130191_likes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Tweet.cs" />
     <Compile Include="Models\User.cs" />
@@ -221,6 +225,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611161312236_TwitterDbWhisFollowers.resx">
       <DependentUpon>201611161312236_TwitterDbWhisFollowers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611231130191_likes.resx">
+      <DependentUpon>201611231130191_likes.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

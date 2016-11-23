@@ -12,6 +12,9 @@
         </div>
         <div class="tweet-text">
             @tweet.Text
+        </div>
+        <div class="tweet-info">
+            <img src="~/Image/like.png" height="15" width="15"/>@Html.ActionLink(@tweet.Likes.ToString(), "Like", "User", new {id = tweet.Id}, null)
         </div>      
     </div>
     }

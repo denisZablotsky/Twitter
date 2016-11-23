@@ -19,5 +19,15 @@ namespace Twitter.Data
             context.SaveChanges();
             return newTweet;
         }
+        public Tweet GetTweetById(int id)
+        {
+            return context.Tweets.Find(id);
+        }
+        public void Like(int tweetId)
+        {
+            Tweet tweet = GetTweetById(tweetId);
+            tweet.Likes++;
+            context.SaveChanges();
+        }
     }
 }

@@ -175,6 +175,7 @@ textarea {
     background-color: rgb(225, 232, 237);
     border-radius: 3px 3px;
     padding: 25px 25px;
+    margin-top: 10px;
 
 }
 .create-tweet input{
@@ -201,6 +202,16 @@ textarea {
     width: 200px;
     font-size: 19px;
     padding-top: 25px;
+}
+
+.tweet-info{
+    width: 60px;
+    height: 20px;
+    margin-left: 40px;
+    padding-bottom: 5px;
+}
+.tweet img{
+    margin-right: 5px;
 }
 
 

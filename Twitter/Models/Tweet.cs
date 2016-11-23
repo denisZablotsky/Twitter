@@ -7,6 +7,7 @@ namespace Twitter.Models
         public int Id { get; set; }
         public string Text { get; set; }
         public DateTime CreatingDate { get; set; }
+        public int Likes { get; set; }
 
         /*
          * Navigation Property. 

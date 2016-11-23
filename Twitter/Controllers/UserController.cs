@@ -36,8 +36,15 @@ namespace Twitter.Controllers
         public ActionResult CreateTweet(Tweet tweet)
         {
             tweet.UserId = tweet.Id;
+            tweet.Likes = 0;
             tweetRepository.CreateTweet(tweet);
             return RedirectToAction("Index", "Me");
+        }
+        public ActionResult Like(int id)
+        {
+            Tweet tweet = tweetRepository.GetTweetById(id);
+            tweetRepository.Like(tweet.Id);
+            return RedirectToAction("Index", "User", new { id = tweet.UserId });
         }
         public PartialViewResult FollowSection(int id)
         {

@@ -1,3 +1,7 @@
 ﻿@model int
 
-@Html.ActionLink("Follow", "Follow", "User", new { id = Model }, null)
+
+@using (Html.BeginForm("Follow", "User", new { id = Model }, FormMethod.Get, null))
+{
+    <input type="submit" value="Follow" />
+}

@@ -3,8 +3,8 @@
     ViewBag.Title = "Registration";
 }
 
-<h2>Registration</h2>
-
+<h2 align="center">Join to Twitter today</h2>
+<div class="signup-form">
 @using(Html.BeginForm("Signup", "Home", FormMethod.Post))
 {
     @Html.Label("Name");
@@ -23,5 +23,6 @@
     <br />
     @Html.TextBoxFor(x => x.Profile.Age);
     <br /><br />
-    <input type="submit" value="Sign Up" />
+    <span class="signup-btn"><span class="button"><input type="submit" value="Sign Up" /></span></span>
 }
+</div>

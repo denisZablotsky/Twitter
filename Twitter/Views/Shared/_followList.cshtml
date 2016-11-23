@@ -1,5 +1,6 @@
 ﻿@model Twitter.Models.User
-
+<div class="follow-list">
+<div class="followers">
 <p>Followers:</p>
 @if (!Model.Followers.Any())
 {
@@ -14,18 +15,22 @@ else
         </p>
     }
 }
-<br />
-<p>Followings:</p>
-@if (!Model.Followings.Any())
-{
-    <p>No Followings.</p>
-}
-else
-{
-    foreach (Twitter.Models.User user in Model.Followings)
-    {
-        <p>
-            @Html.ActionLink(user.Name, "Index", "User", new { id = user.Id }, null)
-        </p>
-    }
-}
+</div>
+
+    <div class="followings">
+        <p>Followings:</p>
+        @if (!Model.Followings.Any())
+        {
+            <p>No Followings.</p>
+        }
+        else
+        {
+            foreach (Twitter.Models.User user in Model.Followings)
+            {
+                <p>
+                    @Html.ActionLink(user.Name, "Index", "User", new { id = user.Id }, null)
+                </p>
+            }
+        }
+    </div>
+</div>

@@ -1,15 +1,19 @@
 ﻿@model ICollection<Twitter.Models.Tweet>
 
 <br />
+<div class="tweetList">
 @if (Model != null)
 {
     foreach (Twitter.Models.Tweet tweet in Model)
     {
-    <p>
-        @Html.ActionLink(@tweet.Author.Name, "Index", "User", new { id = @tweet.Author.Id }, null) at @tweet.CreatingDate.Day.@tweet.CreatingDate.Month @tweet.CreatingDate.Hour:@tweet.CreatingDate.Minute
-        <br />
-        @tweet.Text
-    </p>
-    <br />
+    <div class="tweet">
+        <div class="tweet-header">
+            @Html.ActionLink(@tweet.Author.Name, "Index", "User", new { id = @tweet.Author.Id }, null) at @tweet.CreatingDate.Day.@tweet.CreatingDate.Month @tweet.CreatingDate.Hour:@tweet.CreatingDate.Minute
+        </div>
+        <div class="tweet-text">
+            @tweet.Text
+        </div>      
+    </div>
     }
 }
+</div>

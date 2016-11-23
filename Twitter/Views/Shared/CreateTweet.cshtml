@@ -1,8 +1,10 @@
 ﻿@model Twitter.Models.Tweet
 
-@using(Html.BeginForm("CreateTweet", "User", FormMethod.Post))
+@using (Html.BeginForm("CreateTweet", "User", FormMethod.Post))
 {
-    @Html.TextAreaFor(x => x.Text);
-    <br />
-    <input type="submit" value="Publish" />
+    <div class="create-tweet">
+        @Html.TextAreaFor(x => x.Text)
+        <br />
+        <div class="wtf">What is Happaning?</div><span class="button"><input type="submit" value="Publish" /></span>
+    </div>
 }

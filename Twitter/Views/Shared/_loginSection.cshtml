@@ -3,15 +3,10 @@
 @using(Html.BeginForm("Login", "Home", FormMethod.Post))
 {
     @Html.Label("Name")
-    <br />
-    @Html.TextBoxFor(x => x.Name)
-    <br />
-    <br />
+    <span class="login">@Html.TextBoxFor(x => x.Name)</span>
     @Html.Label("Password")
-    <br />
-    @Html.PasswordFor(x => x.Password)
-    <br />
-    <br />
-    <input type="submit" value="Login" />
+    <span class="pass">@Html.PasswordFor(x => x.Password)</span>
+    <span class="button"><input type="submit" value="Login" /></span>
+    @Html.ActionLink("Sign up", "Registration", "Home")
 }
-@Html.ActionLink("Registration", "Registration", "Home")
+

@@ -1,17 +1,21 @@
 ﻿@model Twitter.Models.User
-
-<h2>@Model.Name</h2>
-<br />
-<br />
-@Html.ActionLink("Timeline", "Timeline", "Me", null, null);
-<br />
-@{ 
-    Html.RenderPartial("_followList", Model);
-}
-<br />
-@{
-    Html.RenderAction("CreateTweet", "User", new { id = Model.Id });
-}
-@{ 
-    Html.RenderPartial("_tweetList", Model.Tweets);
-}
+<div class="info">
+    <h2>@Model.Name</h2>
+    <p>@Model.Profile.Email</p>
+    <p>@Model.Profile.Age</p>
+    <p>@Model.Profile.SignupData</p>
+    @using (Html.BeginForm("Timeline", "Me", FormMethod.Get))
+    {
+        <input type="submit" value="Timeline" />
+    }
+</div>
+    @{
+        Html.RenderPartial("_followList", Model);
+    }
+    <br />
+    @{
+        Html.RenderAction("CreateTweet", "User", new { id = Model.Id });
+    }
+    @{
+        Html.RenderPartial("_tweetList", Model.Tweets);
+    }

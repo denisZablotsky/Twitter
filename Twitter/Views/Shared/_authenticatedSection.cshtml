@@ -2,6 +2,6 @@
 
 @using(Html.BeginForm("Logout", "Home", FormMethod.Post))
 {
-    <h3>@Html.ActionLink(@Model.Name, "Index", "Me")</h3>
-    <input type="submit" value="Logout" />
+    @Html.ActionLink(@Model.Name, "Index", "Me")
+    <span class="button"><input type="submit" value="Logout" /></span>
 }

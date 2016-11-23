@@ -10,20 +10,198 @@
 body{
     background-color: rgb(245, 248, 250);
     color: #808080;
+    font-family: Arial,sans-serif;
 }
 /* Set width on the form input elements since they're 100% wide by default */
 input,
 select,
 textarea {
-    max-width: 280px;
+    max-width: 700px;
     
 }
 
 /*Header of the site*/
 .page-header{
     height: 45px;
-    width:inherit;
+    width: 100%;
     background-color: white;
     box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 3px;
 }
+.header-content{
+    width: 750px;
+    margin: auto;
+    height: inherit;
+}
+.logo{
+    padding-top: 7px;
+    width: 100px;
+    float: left;
+}
+.logo a{
+    font-size: 27px;
+    font-style: normal;
+    text-decoration: none;
+    color:rgb(29, 161, 242) ;
+}
+
+.content{
+    min-width: 500px;
+    width: 750px;
+    margin: auto;
+    min-height: 700px;
+    padding: 10px;
+
+}
+.auth{
+    float: right;
+    height: inherit;
+    padding-top: 10px;
+}
+.auth input{
+    width: 100px;
+    margin-right: 10px;
+    background-color: rgb(245, 248, 250);
+    height: 22px;
+    border-style: none;
+    border: 1px solid rgb(195, 198, 200);
+    border-radius: 3px 2px;
+    padding-left: 5px;
+    color: grey;
+}
+.auth a{
+    text-decoration: none;
+    color: #707070;
+    font-size: 17px;
+    padding-right: 5px;
+}
+
+.button input{
+    background-color: rgb(29, 161, 242);
+    color: #fafafa;
+}
+.auth label{
+    margin-right: 5px;
+}
+.info{
+    border: 3px solid white;
+    width: 200px;
+    float: left;
+    min-height: 200px;
+    padding: 20px;
+    background-color: rgb(225, 232, 237);
+    margin-right: 10px;
+    border-radius: 7px 7px;
+}
+.info p,h2{
+    margin-bottom: 10px;
+}
+.info input{
+    font-size: 17px;
+    background-color: rgb(29, 161, 242);
+    height: 40px;
+    width: 190px;
+    margin: auto;
+    margin-top: 15px;
+    border-style:none;
+    border: 1px solid rgb(195, 198, 200);
+    border-radius: 3px 3px;
+    color: #fafafa;
+}
+.tweetList{
+    width: 100%;
+    float: left;
+    margin-top: 20px;
+}
+.tweet{
+    background-color: white;
+    min-height: 100px;
+    border: 1px solid rgb(195, 198, 200);
+    border-radius: 4px 4px;
+    margin-bottom: 3px;
+}
+.tweet a{
+    text-decoration: none;
+    color:rgb(29, 161, 242) ;
+}
+.tweet-header{
+    height: 25px;
+    padding-left: 40px;
+    padding-top: 5px;
+}
+.tweet-text{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    color: black;
+    font-size: 20px;
+}
+.signup-form{
+    width: 300px;
+    margin: auto;
+    padding-left: 15px;
+}
+.signup-form input{
+    width: 300px;
+    border: 1px solid rgb(195, 198, 200);
+    border-radius: 2px 2px;
+    height: 30px;
+    padding-left: 5px;
+    color: #808080;
+    font-size: 17px;
+}
+.signup-btn input{
+    height: 40px;
+    color: #fafafa;
+    width: 307px;
+}
+.follow-list{
+    width: 405px;
+    float: right;
+    
+}
+.followers{
+    width: 200px;
+    float: left;
+}
+.followings{
+    width: 200px;
+    float: right;
+}
+
+.create-tweet{
+    width: 700px;
+    float: right;
+    background-color: rgb(225, 232, 237);
+    border-radius: 3px 3px;
+    padding: 25px 25px;
+
+}
+.create-tweet input{
+    float: right;
+    font-size: 17px;
+    background-color: rgb(29, 161, 242);
+    height: 40px;
+    width: 190px;
+    margin: auto;
+    margin-top: 15px;
+    border-style:none;
+    border: 1px solid rgb(195, 198, 200);
+    border-radius: 3px 3px;
+    color: #fafafa;
+}
+.create-tweet textarea{
+    width: 650px;
+    resize: none;
+    padding: 25px;
+    font-size: 17px;
+}
+.wtf{
+    float: left;
+    width: 200px;
+    font-size: 19px;
+    padding-top: 25px;
+}
+
+
 

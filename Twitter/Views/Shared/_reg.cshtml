@@ -1,1 +1,4 @@
-﻿@Html.ActionLink("Registration", "Registration", "Home")
+﻿@using(Html.BeginForm("Registration", "Home", FormMethod.Get))
+{
+    <input type="submit" value="Registration" />
+}

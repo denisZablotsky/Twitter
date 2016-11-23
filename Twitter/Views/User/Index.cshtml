@@ -2,17 +2,19 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>@Model.Name</h2>
-<p>@Model.Profile.Email</p>
-<p>@Model.Profile.Age</p>
+<div class="info">
+    <h2>@Model.Name</h2>
+    <p><img src="~/Image/mail.png" width="20" height="17" /> @Model.Profile.Email</p>
+    <p><img src="~/Image/user.png" width="17" height="17" /> Age: @Model.Profile.Age</p>
+    <p><img src="~/Image/calendar.png" width="17" height="17" /> Since @Model.Profile.SignupData.Date.Day.@Model.Profile.SignupData.Date.Month.@Model.Profile.SignupData.Date.Year</p>
+    @{
+        Html.RenderAction("FollowSection", "User", new { id = Model.Id });
+    }
+</div>
 @{ 
     Html.RenderPartial("_followList", Model);
 }
 <br />
-@{ 
-    Html.RenderAction("FollowSection", "User", new { id = Model.Id });
-}
 @{
     Html.RenderPartial("_tweetList", Model.Tweets);
 }

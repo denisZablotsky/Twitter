@@ -13,8 +13,21 @@
     
 </head>
 <body>
-    <div class="page-header"> 
+    <div class="page-header">
+        <div class="header-content">
+            <div class="logo">@Html.ActionLink("Twitter", "Index", "Home")</div>
+            <div class="auth">
+                @{ 
+                    Html.RenderAction("AuthenticateSection", "Home");
+                }
+            </div>
+        </div> 
     </div>
-    @RenderBody()
+    <div class="content">
+        @RenderBody()
+    </div>
+    <div class="footer">
+
+    </div>
 </body>
 </html>

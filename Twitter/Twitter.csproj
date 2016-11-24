@@ -153,9 +153,11 @@
     <Compile Include="Controllers\MeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Data\EfDbContext.cs" />
+    <Compile Include="Data\EfHashtagRepository.cs" />
     <Compile Include="Data\EfTweetRepository.cs" />
     <Compile Include="Data\EfUserProfileRepository.cs" />
     <Compile Include="Data\EfUserRepository.cs" />
+    <Compile Include="Data\IHashtagRepository.cs" />
     <Compile Include="Data\ITweetRepository.cs" />
     <Compile Include="Data\IUserProfileRepository.cs" />
     <Compile Include="Data\IUserRepository.cs" />

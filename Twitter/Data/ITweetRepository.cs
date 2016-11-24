@@ -7,5 +7,6 @@ namespace Twitter.Data
         Tweet CreateTweet(Tweet tweet);
         Tweet GetTweetById(int id);
         void Like(int tweetId);
+        void AddHashtag(int TweetId, Hashtag hashtag);
     }
 }

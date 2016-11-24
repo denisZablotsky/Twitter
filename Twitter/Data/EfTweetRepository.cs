@@ -12,6 +12,14 @@ namespace Twitter.Data
         {
             context = new EfDbContext();
         }
+
+        public void AddHashtag(int TweetId, Hashtag hashtag)
+        {
+            Tweet tweet = context.Tweets.Find(TweetId);
+            tweet.Hashtags.Add(hashtag);
+            context.SaveChanges();
+        }
+
         public Tweet CreateTweet(Tweet tweet)
         {
             tweet.CreatingDate = DateTime.Now;

@@ -16,7 +16,12 @@ namespace Twitter.Data
         public void AddHashtag(int TweetId, Hashtag hashtag)
         {
             Tweet tweet = context.Tweets.Find(TweetId);
-            tweet.Hashtags.Add(hashtag);
+            Hashtag hash = context.Hashtags.SingleOrDefault(x => x.Tag == hashtag.Tag);
+            if (hash == null)
+                tweet.Hashtags.Add(hashtag);
+            else
+                tweet.Hashtags.Add(hash);
+            context.Tweets.Attach(tweet);
             context.SaveChanges();
         }
 

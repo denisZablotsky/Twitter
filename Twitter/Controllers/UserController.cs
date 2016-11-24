@@ -46,9 +46,6 @@ namespace Twitter.Controllers
             {
                 Hashtag hash = new Hashtag();
                 hash.Tag = hashtag;
-                Hashtag HashFromDb = hashRepository.GetHashtagByTag(hashtag);
-                if (HashFromDb != null)
-                    hash = HashFromDb;
                 tweetRepository.AddHashtag(Tweet.Id, hash);
             }
             return RedirectToAction("Index", "Me");

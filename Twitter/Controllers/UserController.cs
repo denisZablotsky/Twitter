@@ -40,7 +40,9 @@ namespace Twitter.Controllers
         {
             tweet.UserId = tweet.Id;
             tweet.Likes = 0;
-            Collection<string> hashtags = FindHastags(tweet);
+            string newText = "";
+            Collection<string> hashtags = FindHastags(tweet, out newText);
+            if(hashtags.Any()) tweet.Text = newText;
             Tweet Tweet = tweetRepository.CreateTweet(tweet);
             foreach(string hashtag in hashtags)
             {
@@ -84,14 +86,22 @@ namespace Twitter.Controllers
             return RedirectToAction("Index", "User", new { id = id });
         }
 
-        private Collection<string> FindHastags(Tweet tweet)
+        private Collection<string> FindHastags(Tweet tweet, out string newText)
         {
+            newText = "";
             Collection<string> hashtags = new Collection<string>();
             string[] words = tweet.Text.Split(' ');
             foreach(string word in words)
             {
                 if (word.StartsWith("#"))
+                {
                     hashtags.Add(word);
+                    newText += "<a href='Hashtag/Index/" + word + "'>" + word + "</a> ";
+                }
+                else
+                {
+                    newText += word + " ";
+                }
             }
             return hashtags;
         }

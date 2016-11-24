@@ -11,7 +11,29 @@
             @Html.ActionLink(@tweet.Author.Name, "Index", "User", new { id = @tweet.Author.Id }, null) at @tweet.CreatingDate.Day.@tweet.CreatingDate.Month @tweet.CreatingDate.Hour:@tweet.CreatingDate.Minute
         </div>
         <div class="tweet-text">
-            @tweet.Text
+            @if (tweet.Hashtags.Any() == false)
+            {
+                <span>@tweet.Text</span>
+            }
+            else
+            {
+                
+                string[] t = tweet.Text.Split(' ');
+                foreach(string word in t)
+                {
+                    if (word.StartsWith("#"))
+                    {
+                        string tag = word.Substring(1);
+                        @Html.ActionLink(word, "Index", "Hashtag", new { id = tag }, null);
+                        <span> </span>
+                    }
+                    else
+                    {
+                        <span>@word </span>
+                    }
+                }
+
+            }
         </div>
         <div class="tweet-info">
             <img src="~/Image/like.png" height="15" width="15"/>@Html.ActionLink(@tweet.Likes.ToString(), "Like", "User", new {id = tweet.Id}, null)

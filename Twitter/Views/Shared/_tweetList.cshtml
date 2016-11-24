@@ -23,8 +23,8 @@
                 {
                     if (word.StartsWith("#"))
                     {
-                        string tag = word.Substring(1);
-                        @Html.ActionLink(word, "Index", "Hashtag", new { id = tag }, null);
+                        
+                        @Html.ActionLink(word, "Index", "Hashtag", new { id = word }, null);
                         <span> </span>
                     }
                     else

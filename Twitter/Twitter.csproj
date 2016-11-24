@@ -149,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HashtagController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
@@ -215,6 +216,7 @@
     <Content Include="Views\Shared\_CustomLayout.cshtml" />
     <Content Include="Views\Me\uploadAva.cshtml" />
     <Content Include="Views\Shared\_avatar.cshtml" />
+    <Content Include="Views\Hashtag\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

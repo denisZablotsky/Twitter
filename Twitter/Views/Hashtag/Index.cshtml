@@ -1,0 +1,13 @@
+﻿@model Twitter.Models.Hashtag
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@if(Model == null)
+{
+    <p>Nothing was founded.</p>
+}
+else{
+    Html.RenderPartial("_tweetList", Model.Tweets);
+}

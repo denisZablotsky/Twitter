@@ -11,12 +11,14 @@ namespace Twitter.Controllers
     {
         private IUserRepository userRepository;
         private ITweetRepository tweetRepository;
+        private IHashtagRepository hashRepository;
         private ISecurityService _security;
-        public UserController(IUserRepository userRep, ITweetRepository tweetRep)
+        public UserController(IUserRepository userRep, ITweetRepository tweetRep, IHashtagRepository hashRep)
         {
             userRepository = userRep;
             tweetRepository = tweetRep;
             _security = new SecurityService();
+            hashRepository = hashRep;
         }
         // GET: User
         public ActionResult Index(int id)
@@ -38,8 +40,15 @@ namespace Twitter.Controllers
         {
             tweet.UserId = tweet.Id;
             tweet.Likes = 0;
-
-            tweetRepository.CreateTweet(tweet);
+            Collection<string> hashtags = FindHastags(tweet);
+            Tweet Tweet = tweetRepository.CreateTweet(tweet);
+            foreach(string hashtag in hashtags)
+            {
+                Hashtag hash = new Hashtag();
+                hash.Tag = hashtag;
+                hash = hashRepository.CreateHashtag(hash);
+                Tweet.Hashtags.Add(hash);
+            }
             return RedirectToAction("Index", "Me");
         }
         public ActionResult Like(int id)

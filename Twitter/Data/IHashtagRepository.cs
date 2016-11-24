@@ -3,7 +3,7 @@ using System.Linq;
 
 namespace Twitter.Data
 {
-    interface IHashtagRepository
+    public interface IHashtagRepository
     {
         IQueryable<Hashtag> Hashtags { get; }
         Hashtag GetHashtagByTag(string tag);

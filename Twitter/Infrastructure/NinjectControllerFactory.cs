@@ -28,6 +28,7 @@ namespace Twitter.Infrastructure
             ninjectKernel.Bind<ITweetRepository>().To<EfTweetRepository>();
             ninjectKernel.Bind<IUserProfileRepository>().To<EfUserProfileRepository>();
             ninjectKernel.Bind<ISecurityService>().To<SecurityService>();
+            ninjectKernel.Bind<IHashtagRepository>().To<EfHashtagRepository>();
         }
     }
 }

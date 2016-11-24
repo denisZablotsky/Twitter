@@ -3,6 +3,7 @@ using Twitter.Data;
 using Twitter.Models;
 using Twitter.Services;
 using System.Linq;
+using System.Collections.ObjectModel;
 
 namespace Twitter.Controllers
 {
@@ -37,6 +38,7 @@ namespace Twitter.Controllers
         {
             tweet.UserId = tweet.Id;
             tweet.Likes = 0;
+
             tweetRepository.CreateTweet(tweet);
             return RedirectToAction("Index", "Me");
         }
@@ -72,6 +74,18 @@ namespace Twitter.Controllers
         {
             userRepository.Unfollow(_security.GetCurrentUser().Id, id);
             return RedirectToAction("Index", "User", new { id = id });
+        }
+
+        private Collection<string> FindHastags(Tweet tweet)
+        {
+            Collection<string> hashtags = new Collection<string>();
+            string[] words = tweet.Text.Split(' ');
+            foreach(string word in words)
+            {
+                if (word.StartsWith("#"))
+                    hashtags.Add(word);
+            }
+            return hashtags;
         }
     }
 }

@@ -175,7 +175,12 @@
     <Compile Include="Migrations\201611231130191_likes.Designer.cs">
       <DependentUpon>201611231130191_likes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611241222501_hashtag.cs" />
+    <Compile Include="Migrations\201611241222501_hashtag.Designer.cs">
+      <DependentUpon>201611241222501_hashtag.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Hashtag.cs" />
     <Compile Include="Models\Tweet.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\UserProfile.cs" />
@@ -228,6 +233,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611231130191_likes.resx">
       <DependentUpon>201611231130191_likes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611241222501_hashtag.resx">
+      <DependentUpon>201611241222501_hashtag.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

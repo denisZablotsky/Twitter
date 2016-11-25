@@ -52,11 +52,12 @@ namespace Twitter.Controllers
             }
             return RedirectToAction("Index", "Me");
         }
-        public ActionResult Like(int id)
+        public int Like(int id)
         {
             Tweet tweet = tweetRepository.GetTweetById(id);
+            int likes = tweet.Likes;
             tweetRepository.Like(tweet.Id);
-            return RedirectToAction("Index", "User", new { id = tweet.UserId });
+            return ++likes;
         }
         public PartialViewResult FollowSection(int id)
         {

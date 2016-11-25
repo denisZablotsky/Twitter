@@ -1,5 +1,6 @@
 ﻿@model ICollection<Twitter.Models.Tweet>
-
+<script src="@Url.Content("~/scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
+<script src="@Url.Content("~/scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
 <br />
 <div class="tweetList">
 @if (Model != null)
@@ -36,7 +37,7 @@
             }
         </div>
         <div class="tweet-info">
-            <img src="~/Image/like.png" height="15" width="15"/>@Html.ActionLink(@tweet.Likes.ToString(), "Like", "User", new {id = tweet.Id}, null)
+           @Ajax.ActionLink("Like", "Like", "User", new { id = tweet.Id }, new AjaxOptions { UpdateTargetId = "likes-"+tweet.Id } ) <img src="~/Image/like.png" height="15" width="15"/><div class="likes" id="likes-@tweet.Id">@tweet.Likes</div>
         </div>      
     </div>
     }

@@ -1,5 +1,6 @@
 ﻿using Twitter.Models;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
 namespace Twitter.Data
 {
@@ -9,6 +10,7 @@ namespace Twitter.Data
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<Tweet> Tweets { get; set; }
         public DbSet<Hashtag> Hashtags { get; set; }
+        public DbSet<Comment> Comments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

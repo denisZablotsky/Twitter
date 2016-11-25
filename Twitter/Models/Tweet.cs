@@ -18,10 +18,12 @@ namespace Twitter.Models
         public virtual int UserId { get; set; }
         public virtual User Author { get; set; }
         public virtual ICollection<Hashtag> Hashtags { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
 
         public Tweet()
         {
             Hashtags = new Collection<Hashtag>();
+            Comments = new Collection<Comment>();
         }
     }
 }

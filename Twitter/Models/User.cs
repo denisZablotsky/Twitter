@@ -16,12 +16,14 @@ namespace Twitter.Models
 
         public virtual ICollection<User> Followings { get; set; }
         public virtual ICollection<User> Followers { get; set; }
+        //public virtual ICollection<Comment> Comments { get; set; }
 
         public User()
         {
             Tweets = new Collection<Tweet>();
             Followers = new Collection<User>();
             Followings = new Collection<User>();
+            //Comments = new Collection<Comment>();
         }
     }
 }

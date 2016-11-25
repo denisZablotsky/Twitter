@@ -61,3 +61,5 @@ C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Tw
 C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.csprojResolveAssemblyReference.cache
 C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.Migrations.likes.resources
 C:\Users\user\Documents\Visual Studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.Migrations.hashtag.resources
+C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.Migrations.CommentTwo.resources
+C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.Migrations.commentWithAuthor.resources

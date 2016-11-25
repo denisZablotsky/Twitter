@@ -1,0 +1,8 @@
+﻿@model Twitter.Models.Hashtag
+<div class="search-hashtag">
+    @using (Html.BeginForm("Search", "Hashtag", FormMethod.Get))
+    {
+        <div class="search-hashtag-textbox">@Html.TextBoxFor(x => x.Tag)</div>
+        <span class="button"><input type="submit" value="Search" /></span>
+    }
+</div>

@@ -24,5 +24,9 @@ namespace Twitter.Controllers
             }
             return View("Index", null);
         }
+        public ActionResult Search(Hashtag hash)
+        {
+            return View("Index", hashRepository.GetHashtagByTag(hash.Tag));
+        }
     }
 }

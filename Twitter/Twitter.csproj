@@ -219,6 +219,7 @@
     <Content Include="Views\Me\uploadAva.cshtml" />
     <Content Include="Views\Shared\_avatar.cshtml" />
     <Content Include="Views\Hashtag\Index.cshtml" />
+    <Content Include="Views\Hashtag\_serchHashtag.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

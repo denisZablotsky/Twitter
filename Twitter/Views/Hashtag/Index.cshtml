@@ -2,12 +2,15 @@
 @{
     ViewBag.Title = "Index";
 }
-
-<h2>@Model.Tag</h2>
+@{
+    Html.RenderPartial("_serchHashtag");
+}
 @if(Model == null)
 {
-    <p>Nothing was founded.</p>
+    <p class="error" align="center">Nothing was founded</p>
 }
-else{
+else
+{
+    <h2 align="center" class="error">@Model.Tag</h2>
     Html.RenderPartial("_tweetList", Model.Tweets);
 }

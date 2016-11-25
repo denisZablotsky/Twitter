@@ -217,6 +217,31 @@ textarea {
     width: 15px;
     float: right;
 }
-
-
+.search-hashtag{
+    width: 510px;
+    margin: auto;
+    margin-top: 20px;
+    height: 50px;
+}
+.search-hashtag span input{
+    float: right;
+    width: 100px;
+}
+.search-hashtag input{
+    float: left;
+    width: 380px;
+    height: 35px;
+    border-radius: 3px 3px;
+    border: none;
+}
+.search-hashtag-textbox input{
+    padding-left: 20px;
+    font-size: 17px;
+    border: 1px solid rgb(195, 198, 200);
+    color: grey;
+}
+.error{
+    font-size: 21px;
+    margin-top: 20px;
+}
 

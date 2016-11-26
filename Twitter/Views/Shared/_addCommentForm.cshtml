@@ -1,0 +1,8 @@
+﻿@model Twitter.Models.Comment
+<div class="add-comment">
+@using(Html.BeginForm("addComment", "Home", FormMethod.Post))
+{
+    <span class="add-comment-text"><input type="text" value="" name="Text" id="Text" /></span>
+    <span class="button"><input type="submit" value="Leave a Comment" /></span>
+}
+</div>

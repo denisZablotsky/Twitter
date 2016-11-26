@@ -1,0 +1,13 @@
+﻿@model IQueryable<Twitter.Models.Comment>
+
+@foreach(Twitter.Models.Comment comment in Model)
+{
+    <div class="comment">
+        <div class="comment-header">
+            @Html.ActionLink(comment.AuthorName, "Index", "User", new {id = comment.AuthourId}, null) at @comment.CreatingDate.Date
+        </div>
+        <div class="comment-text">
+            @comment.Text
+        </div>
+    </div>
+}

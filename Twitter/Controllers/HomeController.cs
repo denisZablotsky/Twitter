@@ -3,6 +3,7 @@ using System.Web.Mvc;
 using Twitter.Models;
 using Twitter.Data;
 using Twitter.Services;
+using System;
 
 namespace Twitter.Controllers
 {
@@ -10,10 +11,12 @@ namespace Twitter.Controllers
     {
         private IUserRepository userRepository;
         private ISecurityService _security;
+        private ICommentRepository commentRep;
 
-        public HomeController(IUserRepository userRep)
+        public HomeController(IUserRepository userRep, ICommentRepository commRep)
         {
             userRepository = userRep;
+            commentRep = commRep;
             _security = new SecurityService();
         }
         // GET: Home
@@ -62,6 +65,30 @@ namespace Twitter.Controllers
         {
             _security.Logout();
             return RedirectToAction("Index", "Home");
+        }
+
+        public PartialViewResult CommentsList(Tweet tweet)
+        {
+            if (!_security.IsAuthenticate())
+                return PartialView("_commentsList", tweet.Comments.AsQueryable());
+            else
+                return PartialView("_createComment", tweet);     
+        }
+        public PartialViewResult addComment(Tweet tweet)
+        {
+            Comment comment = new Comment();
+            comment.TweetId = tweet.Id;
+            return PartialView("_addCommentForm", comment);
+        }
+        [HttpPost]
+        public ActionResult addComment(Comment comment)
+        {
+            User user = _security.GetCurrentUser();
+            comment.AuthorName = user.Name;
+            comment.AuthourId = user.Id;
+            comment.CreatingDate = DateTime.Now;
+            commentRep.CreateComment(comment);
+            return RedirectToAction("Index", "User",new { id = comment.AuthourId });
         }
     }
 }

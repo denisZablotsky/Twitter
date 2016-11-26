@@ -155,11 +155,13 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MeController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Data\CommentRepository.cs" />
     <Compile Include="Data\EfDbContext.cs" />
     <Compile Include="Data\EfHashtagRepository.cs" />
     <Compile Include="Data\EfTweetRepository.cs" />
     <Compile Include="Data\EfUserProfileRepository.cs" />
     <Compile Include="Data\EfUserRepository.cs" />
+    <Compile Include="Data\ICommentRepository.cs" />
     <Compile Include="Data\IHashtagRepository.cs" />
     <Compile Include="Data\ITweetRepository.cs" />
     <Compile Include="Data\IUserProfileRepository.cs" />
@@ -229,6 +231,9 @@
     <Content Include="Views\Shared\_avatar.cshtml" />
     <Content Include="Views\Hashtag\Index.cshtml" />
     <Content Include="Views\Hashtag\_serchHashtag.cshtml" />
+    <Content Include="Views\Shared\_commentsList.cshtml" />
+    <Content Include="Views\Shared\_createComment.cshtml" />
+    <Content Include="Views\Shared\_addCommentForm.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

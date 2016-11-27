@@ -1,6 +1,6 @@
 ﻿@model Twitter.Models.Tweet
 
-@using (Html.BeginForm("CreateTweet", "User", FormMethod.Post))
+@using (Html.BeginForm("CreateTweet", "User", FormMethod.Post, new { tweet = Model }))
 {
     <div class="create-tweet">
         @Html.TextAreaFor(x => x.Text)

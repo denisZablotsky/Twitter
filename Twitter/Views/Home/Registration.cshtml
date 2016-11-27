@@ -3,8 +3,9 @@
     ViewBag.Title = "Registration";
 }
 
-<h2 align="center">Join to Twitter today</h2>
+
 <div class="signup-form">
+    <h2 align="center">Join to Twitter today</h2>
 @using(Html.BeginForm("Signup", "Home", FormMethod.Post))
 {
     @Html.Label("Name");

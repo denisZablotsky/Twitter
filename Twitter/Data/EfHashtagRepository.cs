@@ -35,5 +35,10 @@ namespace Twitter.Data
         {
             return context.Hashtags.SingleOrDefault(x => x.Tag == tag);
         }
+
+        public IQueryable<Hashtag> PopularHashtags()
+        {
+            return context.Hashtags.OrderByDescending(x => x.Tweets.Count).Take(5);
+        }
     }
 }

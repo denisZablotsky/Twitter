@@ -29,6 +29,11 @@ namespace Twitter.Controllers
             user.Tweets = user.Tweets.OrderByDescending(x => x.CreatingDate).ToList();
             return View(user);
         }
+        public PartialViewResult PopularHashtags()
+        {
+            IQueryable<Hashtag> popularHash = hashRepository.PopularHashtags();
+            return PartialView(popularHash);
+        }
         public PartialViewResult CreateTweet(int id)
         {
             Tweet tweet = new Tweet();
@@ -52,12 +57,12 @@ namespace Twitter.Controllers
             }
             return RedirectToAction("Index", "Me");
         }
-        public int Like(int id)
+        public PartialViewResult Like(int id)
         {
             Tweet tweet = tweetRepository.GetTweetById(id);
             int likes = tweet.Likes;
             tweetRepository.Like(tweet.Id);
-            return ++likes;
+            return PartialView("likes", ++likes);
         }
         public PartialViewResult FollowSection(int id)
         {
@@ -97,12 +102,9 @@ namespace Twitter.Controllers
                 if (word.StartsWith("#"))
                 {
                     hashtags.Add(word);
-                    newText += "<a href='Hashtag/Index/" + word + "'>" + word + "</a> ";
-                }
-                else
-                {
-                    newText += word + " ";
-                }
+                    
+                }               
+                newText += word + " ";      
             }
             return hashtags;
         }

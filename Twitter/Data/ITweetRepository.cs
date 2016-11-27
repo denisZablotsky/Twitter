@@ -1,4 +1,5 @@
 ﻿using Twitter.Models;
+using System.Linq;
 
 namespace Twitter.Data
 {
@@ -8,5 +9,6 @@ namespace Twitter.Data
         Tweet GetTweetById(int id);
         void Like(int tweetId);
         void AddHashtag(int TweetId, Hashtag hashtag);
+        IQueryable<Tweet> GetLastNews();
     }
 }

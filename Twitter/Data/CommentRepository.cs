@@ -1,4 +1,4 @@
-﻿
+﻿using System.Linq;
 using Twitter.Models;
 
 namespace Twitter.Data
@@ -16,6 +16,11 @@ namespace Twitter.Data
             Comment comment = context.Comments.Add(comm);
             context.SaveChanges();
             return comment;
+        }
+
+        public IQueryable<Comment> GetCommentsByTweetId(int TweetId)
+        {
+            return context.Comments.Where(x => x.TweetId == TweetId);
         }
     }
 }

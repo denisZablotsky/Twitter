@@ -234,6 +234,8 @@
     <Content Include="Views\Shared\_commentsList.cshtml" />
     <Content Include="Views\Shared\_createComment.cshtml" />
     <Content Include="Views\Shared\_addCommentForm.cshtml" />
+    <Content Include="Views\Shared\PopularHashtags.cshtml" />
+    <Content Include="Views\Shared\likes.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -4,7 +4,7 @@
 {
     <div class="comment">
         <div class="comment-header">
-            @Html.ActionLink(comment.AuthorName, "Index", "User", new {id = comment.AuthourId}, null) at @comment.CreatingDate.Date
+            @Html.ActionLink(comment.AuthorName, "Index", "User", new {id = comment.AuthourId}, null) at @comment.CreatingDate.Day.@comment.CreatingDate.Month @comment.CreatingDate.Hour:@comment.CreatingDate.Minute
         </div>
         <div class="comment-text">
             @comment.Text

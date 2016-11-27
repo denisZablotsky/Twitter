@@ -3,9 +3,8 @@
     ViewBag.Title = "Index";
 }
 
-
+<div class="users-list">
 <h3>All Users:</h3>
-<br />
 @if (Model == null)
 {
     <p>No registered users. Become the first!</p>
@@ -15,5 +14,13 @@ else{
     {
         <p>@Html.ActionLink(user.Name, "Index", "User", new { id = user.Id }, null)</p>
     }
+}
+    </div>
+@{ 
+    Html.RenderAction("PopularHashtags", "User");
+}
+<h3>Lates news</h3>
+@{ 
+    Html.RenderAction("News", "Home");
 }
 

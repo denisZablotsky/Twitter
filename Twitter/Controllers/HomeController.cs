@@ -4,6 +4,7 @@ using Twitter.Models;
 using Twitter.Data;
 using Twitter.Services;
 using System;
+using System.Collections.Generic;
 
 namespace Twitter.Controllers
 {
@@ -12,11 +13,13 @@ namespace Twitter.Controllers
         private IUserRepository userRepository;
         private ISecurityService _security;
         private ICommentRepository commentRep;
+        private ITweetRepository tweetRep;
 
-        public HomeController(IUserRepository userRep, ICommentRepository commRep)
+        public HomeController(IUserRepository userRep, ICommentRepository commRep, ITweetRepository tweerR)
         {
             userRepository = userRep;
             commentRep = commRep;
+            tweetRep = tweerR;
             _security = new SecurityService();
         }
         // GET: Home
@@ -37,6 +40,11 @@ namespace Twitter.Controllers
         {
             userRepository.CreateUser(user);
             return RedirectToAction("Index", "Home");
+        }
+        public ActionResult News()
+        {
+            ICollection<Tweet> news = tweetRep.GetLastNews().ToList();
+            return PartialView("_tweetList", news);
         }
 
         // Authentication
@@ -67,10 +75,10 @@ namespace Twitter.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        public PartialViewResult CommentsList(Tweet tweet)
+        public PartialViewResult CreateComment(Tweet tweet)
         {
             if (!_security.IsAuthenticate())
-                return PartialView("_commentsList", tweet.Comments.AsQueryable());
+                return null;
             else
                 return PartialView("_createComment", tweet);     
         }
@@ -81,14 +89,15 @@ namespace Twitter.Controllers
             return PartialView("_addCommentForm", comment);
         }
         [HttpPost]
-        public ActionResult addComment(Comment comment)
+        public PartialViewResult addComment(int id, Comment comment)
         {
             User user = _security.GetCurrentUser();
             comment.AuthorName = user.Name;
             comment.AuthourId = user.Id;
             comment.CreatingDate = DateTime.Now;
             commentRep.CreateComment(comment);
-            return RedirectToAction("Index", "User",new { id = comment.AuthourId });
+            Tweet tweet = tweetRep.GetTweetById(comment.TweetId);
+            return PartialView("_commentsList", tweet.Comments.AsQueryable());
         }
     }
 }

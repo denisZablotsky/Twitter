@@ -9,5 +9,6 @@ namespace Twitter.Data
         Hashtag GetHashtagByTag(string tag);
         Hashtag CreateHashtag(Hashtag hashtag);
         Hashtag GetHashtagById(int id);
+        IQueryable<Hashtag> PopularHashtags();
     }
 }

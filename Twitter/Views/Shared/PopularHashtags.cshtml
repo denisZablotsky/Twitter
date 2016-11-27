@@ -1,0 +1,10 @@
+﻿@model IQueryable<Twitter.Models.Hashtag>
+<div class="hash-list">
+    <h3>Actual Themes</h3>
+@foreach(Twitter.Models.Hashtag hash in Model)
+{
+    <div class="hash">
+        @Html.ActionLink(hash.Tag, "Index", "Hashtag", new { id = hash.Tag}, null)
+    </div>
+}
+</div>

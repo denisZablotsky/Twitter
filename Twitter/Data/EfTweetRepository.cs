@@ -32,6 +32,13 @@ namespace Twitter.Data
             context.SaveChanges();
             return newTweet;
         }
+
+        public IQueryable<Tweet> GetLastNews()
+        {
+            DateTime testDate = DateTime.Now.AddDays(-7);
+            return context.Tweets.Where(x => x.CreatingDate >= testDate).OrderByDescending(x => x.CreatingDate);
+        }
+
         public Tweet GetTweetById(int id)
         {
             return context.Tweets.Find(id);

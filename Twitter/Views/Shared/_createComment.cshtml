@@ -1,8 +1,5 @@
 ﻿@model Twitter.Models.Tweet
 
-@{
-    Html.RenderPartial("_commentsList", Model.Comments.AsQueryable());
-}
 @{ 
     Html.RenderAction("addComment", "Home", Model);
 }

@@ -1,6 +1,4 @@
 ﻿@model ICollection<Twitter.Models.Tweet>
-<script src="@Url.Content("~/scripts/jquery-1.10.2.min.js")" type="text/javascript"></script>
-<script src="@Url.Content("~/scripts/jquery.unobtrusive-ajax.min.js")" type="text/javascript"></script>
 <br />
 <div class="tweetList">
 @if (Model != null)
@@ -42,10 +40,15 @@
               
     </div>
     <div id="comments" class="comments">
+        <div id="comments-@tweet.Id">
             @{ 
-                Html.RenderAction("CommentsList", "Home", tweet);
+                Html.RenderPartial("_commentsList", tweet.Comments.AsQueryable());
             }
-        </div>
+         </div>
+            @{ 
+                Html.RenderAction("CreateComment", "Home", tweet);
+            }
+     </div>
     }
 }
 </div>

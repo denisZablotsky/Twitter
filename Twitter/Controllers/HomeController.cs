@@ -5,6 +5,8 @@ using Twitter.Data;
 using Twitter.Services;
 using System;
 using System.Collections.Generic;
+using System.Web;
+using Enyim.Caching;
 
 namespace Twitter.Controllers
 {
@@ -17,6 +19,7 @@ namespace Twitter.Controllers
 
         public HomeController(IUserRepository userRep, ICommentRepository commRep, ITweetRepository tweerR)
         {
+           
             userRepository = userRep;
             commentRep = commRep;
             tweetRep = tweerR;
@@ -46,7 +49,15 @@ namespace Twitter.Controllers
             ICollection<Tweet> news = tweetRep.GetLastNews().ToList();
             return PartialView("_tweetList", news);
         }
-
+        public ActionResult Cached()
+        {
+            MemcachedClient client = new MemcachedClient();
+            bool f = false;
+            f = client.Store(Enyim.Caching.Memcached.StoreMode.Set, "ab", "denis", TimeSpan.FromMinutes(20));
+            string name = client.Get<string>("ab");
+            //name = "aaaa";
+            return View("Cached",(object)name);
+        }
         // Authentication
         public PartialViewResult AuthenticateSection()
         {
@@ -98,6 +109,29 @@ namespace Twitter.Controllers
             commentRep.CreateComment(comment);
             Tweet tweet = tweetRep.GetTweetById(comment.TweetId);
             return PartialView("_commentsList", tweet.Comments.AsQueryable());
+        }
+        public PartialViewResult Ava(User user)
+        {
+            string avatar = user.AvatarLink;
+            return PartialView("_ava", avatar);
+        }
+        public PartialViewResult LoadAva()
+        {
+            if (!_security.IsAuthenticate())
+                return null;
+            else
+                return PartialView("_loadAva");
+        }
+        public ActionResult Upload(HttpPostedFileBase file)
+        {
+            if(file != null && file.ContentLength > 0)
+            {
+                User user = _security.GetCurrentUser();
+                string link = Url.Content("~/Users/user/Image") + user.Name + "_" + file.FileName;
+                file.SaveAs(link);
+                userRepository.SaveLink(user.Id, link);
+            }
+            return RedirectToAction("Index", "Me");
         }
     }
 }

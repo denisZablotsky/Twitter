@@ -1,0 +1,15 @@
+﻿@model String
+
+@if(Model == null)
+{
+    <span class="noAva"><p align="center">No avatar</p></span>
+}
+else
+{
+    <img src="~/@Model" width="200" height="200" />
+}
+<div class="load-ava">
+    @{ 
+    //    Html.RenderAction("LoadAva", "Home");
+    }
+</div>

@@ -10,7 +10,7 @@ namespace Twitter.Models
         public string Text { get; set; }
         public DateTime CreatingDate { get; set; }
         public int Likes { get; set; }
-
+        public string Links { get; set; }
         /*
          * Navigation Property. 
          * |User| -HasMany-> |Tweet|

@@ -66,3 +66,8 @@ C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Tw
 C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.csprojResolveAssemblyReference.cache
 C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\bin\Enyim.Caching.dll
 C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\bin\Enyim.Caching.xml
+C:\Users\user\Documents\Visual Studio 2015\Projects\Twitter\Twitter\bin\Enyim.Caching.pdb
+C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\obj\Debug\Twitter.Migrations.links.resources
+C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\bin\HtmlAgilityPack.dll
+C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\bin\HtmlAgilityPack.pdb
+C:\Users\user\documents\visual studio 2015\Projects\Twitter\Twitter\bin\HtmlAgilityPack.xml

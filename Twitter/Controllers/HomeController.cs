@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Web;
 using Enyim.Caching;
+using HtmlAgilityPack;
 
 namespace Twitter.Controllers
 {
@@ -16,10 +17,11 @@ namespace Twitter.Controllers
         private ISecurityService _security;
         private ICommentRepository commentRep;
         private ITweetRepository tweetRep;
+        private MemcachedClient MemcachedClient;
 
         public HomeController(IUserRepository userRep, ICommentRepository commRep, ITweetRepository tweerR)
         {
-           
+            MemcachedClient = new MemcachedClient();
             userRepository = userRep;
             commentRep = commRep;
             tweetRep = tweerR;
@@ -132,6 +134,40 @@ namespace Twitter.Controllers
                 userRepository.SaveLink(user.Id, link);
             }
             return RedirectToAction("Index", "Me");
+        }
+        public PartialViewResult Attachment(string link)
+        {
+            string attachment = MemcachedClient.Get<string>(link);
+            if(attachment == null)
+            {
+                HtmlWeb htmlWeb = new HtmlWeb();
+                HtmlDocument htmlDoc = null;
+                try
+                {
+                    htmlDoc = htmlWeb.Load(link);
+                }
+                catch(Exception e)
+                {
+                    htmlDoc = null;
+                }
+                if (htmlDoc == null)
+                    return PartialView("_attachment", null);
+                HtmlNode root = htmlDoc.DocumentNode;
+                HtmlNodeCollection nodes = root.SelectNodes("//meta");
+                foreach(HtmlNode node in nodes)
+                {
+                    string attr = node.GetAttributeValue("property", null);
+                    if (attr != null)
+                    {
+                        if (attr == "og:title") attachment += node.GetAttributeValue("content", null) + "&";
+                        if (attr == "og:description") attachment += node.GetAttributeValue("content", null) + "&";
+                        if (attr == "og:url") attachment += node.GetAttributeValue("content", null) + "&";
+                        if (attr == "og:image") attachment += node.GetAttributeValue("content", null) + "&";
+                    }
+                }
+                MemcachedClient.Store(Enyim.Caching.Memcached.StoreMode.Set, link, attachment, DateTime.Now.AddDays(30));
+            }
+            return PartialView("_attachment", attachment);
         }
     }
 }

@@ -52,7 +52,11 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Enyim.Caching, Version=2.16.0.0, Culture=neutral, PublicKeyToken=cec98615db04012e, processorArchitecture=MSIL">
-      <HintPath>..\packages\EnyimMemcached.2.16.0\lib\net35\Enyim.Caching.dll</HintPath>
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\Downloads\Новая папка\Enyim.Caching\bin\Debug\Enyim.Caching.dll</HintPath>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.4.9.5, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.4.9.5\lib\Net45\HtmlAgilityPack.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -202,6 +206,10 @@
     <Compile Include="Migrations\201611270609414_Avatar.Designer.cs">
       <DependentUpon>201611270609414_Avatar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201611301128147_links.cs" />
+    <Compile Include="Migrations\201611301128147_links.Designer.cs">
+      <DependentUpon>201611301128147_links.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\Hashtag.cs" />
@@ -247,6 +255,7 @@
     <Content Include="Views\Shared\_ava.cshtml" />
     <Content Include="Views\Shared\_loadAva.cshtml" />
     <Content Include="Views\Home\Cached.cshtml" />
+    <Content Include="Views\Shared\_attachment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -279,6 +288,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201611270609414_Avatar.resx">
       <DependentUpon>201611270609414_Avatar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201611301128147_links.resx">
+      <DependentUpon>201611301128147_links.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

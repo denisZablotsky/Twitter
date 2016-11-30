@@ -43,11 +43,16 @@ namespace Twitter.Controllers
         [HttpPost]
         public ActionResult CreateTweet(Tweet tweet)
         {
+            if (tweet.Text == null)
+                return RedirectToAction("Index", "Me");
             tweet.UserId = tweet.Id;
             tweet.Likes = 0;
             string newText = "";
-            Collection<string> hashtags = FindHastags(tweet, out newText);
+            string links = "";
+            Collection<string> hashtags = FindHastags(tweet, out newText, out links);
             if(hashtags.Any()) tweet.Text = newText;
+            if(links != "")
+                tweet.Links = links;
             Tweet Tweet = tweetRepository.CreateTweet(tweet);
             foreach(string hashtag in hashtags)
             {
@@ -92,9 +97,10 @@ namespace Twitter.Controllers
             return RedirectToAction("Index", "User", new { id = id });
         }
 
-        private Collection<string> FindHastags(Tweet tweet, out string newText)
+        private Collection<string> FindHastags(Tweet tweet, out string newText, out string links)
         {
             newText = "";
+            links = "";
             Collection<string> hashtags = new Collection<string>();
             string[] words = tweet.Text.Split(' ');
             foreach(string word in words)
@@ -103,6 +109,10 @@ namespace Twitter.Controllers
                 {
                     hashtags.Add(word);
                     
+                }
+                else if (word.StartsWith("http:/") || word.StartsWith("https:/"))
+                {
+                    links += word + " ";
                 }               
                 newText += word + " ";      
             }

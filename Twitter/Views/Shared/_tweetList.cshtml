@@ -37,7 +37,16 @@
         <div class="tweet-info">
            @Ajax.ActionLink("Like", "Like", "User", new { id = tweet.Id }, new AjaxOptions { UpdateTargetId = "likes-"+tweet.Id } ) <img src="~/Image/like.png" height="15" width="15"/><div class="likes" id="likes-@tweet.Id">@tweet.Likes</div>
         </div>
-              
+        <div class="attachments">
+            @if(tweet.Links != null)
+            {
+                string[] links = tweet.Links.Split(' ');
+                foreach(string link in links)
+                {
+                      Html.RenderAction("Attachment", "Home", new { link = link });
+                }
+            }
+        </div>      
     </div>
     <div id="comments" class="comments">
         <div id="comments-@tweet.Id">

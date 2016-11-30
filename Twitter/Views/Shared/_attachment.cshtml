@@ -1,0 +1,13 @@
+﻿@model string
+
+@if(Model != null)
+{
+    string[] parts = Model.Split('&');
+    <div class="attachment">
+        @foreach(string part in parts)
+        {
+            <span>@part</span>
+            <br />
+        }
+    </div>
+}

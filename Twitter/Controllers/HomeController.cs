@@ -138,9 +138,11 @@ namespace Twitter.Controllers
         public PartialViewResult Attachment(string link)
         {
             string attachment = MemcachedClient.Get<string>(link);
+            //attachment = "";
             if(attachment == null)
             {
                 HtmlWeb htmlWeb = new HtmlWeb();
+                string title = "" + (char)11, description = "" + (char)11, url = "" + (char)11, image = "" + (char)11;
                 HtmlDocument htmlDoc = null;
                 try
                 {
@@ -159,12 +161,13 @@ namespace Twitter.Controllers
                     string attr = node.GetAttributeValue("property", null);
                     if (attr != null)
                     {
-                        if (attr == "og:title") attachment += node.GetAttributeValue("content", null) + "&";
-                        if (attr == "og:description") attachment += node.GetAttributeValue("content", null) + "&";
-                        if (attr == "og:url") attachment += node.GetAttributeValue("content", null) + "&";
-                        if (attr == "og:image") attachment += node.GetAttributeValue("content", null) + "&";
+                        if (attr == "og:title") title = node.GetAttributeValue("content", null);
+                        if (attr == "og:description") description = node.GetAttributeValue("content", null);
+                        if (attr == "og:url") url = node.GetAttributeValue("content", null);
+                        if (attr == "og:image") image = node.GetAttributeValue("content", null);
                     }
                 }
+                attachment += title + (char)22 + description + (char)22 + url + (char)22 + image;
                 MemcachedClient.Store(Enyim.Caching.Memcached.StoreMode.Set, link, attachment, DateTime.Now.AddDays(30));
             }
             return PartialView("_attachment", attachment);

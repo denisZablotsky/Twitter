@@ -320,3 +320,20 @@ textarea {
     text-decoration: none;
     color:rgb(29, 161, 242);
 }
+
+.attachment{
+    border: 1px solid rgb(195, 198, 200);
+    margin: 20px;
+    padding: 20px;
+}
+.attachment-title{
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+.attachment-description{
+    margin-bottom: 15px;
+}
+.attachment-url{
+    margin-bottom: 10px;
+}

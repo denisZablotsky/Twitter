@@ -2,12 +2,32 @@
 
 @if(Model != null)
 {
-    string[] parts = Model.Split('&');
+    string empty = "" + (char)11;
+    string[] parts = Model.Split((char)22);
     <div class="attachment">
-        @foreach(string part in parts)
-        {
-            <span>@part</span>
-            <br />
-        }
+        <div class="attachment-title">
+            @if(parts[0] != empty)
+            {
+                <span>@parts[0]</span>
+            }
+        </div>
+        <div class="attachment-description">
+            @if (parts[1] != empty)
+            {
+                <span>@parts[1]</span>
+            }
+        </div>
+        <div class="attachment-url">
+            @if (parts[2] != empty)
+            {
+                <a href="@parts[2]">@parts[2]</a>
+            }
+        </div>
+        <div class="attachment-image">
+            @if (parts[3] != empty && parts[3] != "")
+            {
+                <img height="100" width="100" src="@parts[3]" />
+            }
+        </div>
     </div>
 }
